@@ -1,0 +1,65 @@
+<script>
+
+
+function Person(fn, ln) {
+	this.fn = fn;
+	this.ln = ln;
+}
+
+Person.prototype.getFullName = function() {
+	return this.fn + ' ' + this.ln;
+};
+
+function Student(sid, fn, ln) {
+	this._super.call(this, fn, ln);
+	this.sid = sid;
+}
+
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+Student.prototype._super = Person;
+
+Student.prototype.getStudentInfo = function() {
+	return this.sid + ' ' + this.ln + ', ' + this.fn;
+};
+
+var s = new Student(2, 'Jane', 'Smith');
+console.log(s.getFullName());
+console.log(s.getStudentInfo())
+console.dir(s);
+
+class Person2 {
+
+	constructor(fn, ln) {
+		this.fn = fn;
+		this.ln = ln;
+	}
+
+	getFullName() {
+		return this.fn + ' ' + this.ln;
+	}
+
+}
+
+class Student2 extends Person2 {
+
+	constructor(sid, fn, ln) {
+		super(fn, ln);
+		this.sid = sid;
+	}
+
+	getStudentInfo() {
+		return this.sid + " " + this.fn + ", " + this.ln;
+	}
+
+}
+
+var p = new Person('A','B');
+console.dir(p);
+var p2 = new Person2('A','B');
+console.dir(p2);
+
+var s2 = new Student2(2, 'A', 'B');
+console.dir(s2);
+
+</script>
