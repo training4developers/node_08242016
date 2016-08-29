@@ -10,6 +10,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.0",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.8"
+  },
+  "webServer": {
+    "port": 3000
+  },
+  "mongoServer": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "restapp"
   }
 }
